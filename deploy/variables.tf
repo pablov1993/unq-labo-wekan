@@ -60,3 +60,13 @@ variable "wekan-hostname"{
 
 }
 
+variable "wekan-web-port"{
+    description = "Default web port for wekan"
+    type        = string
+    default     = "8080"
+
+}
+
+
+
+

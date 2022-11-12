@@ -30,9 +30,10 @@ resource "google_compute_firewall" "allow-http" {
 
     allow {
         protocol = "tcp"
-        ports    = ["8080"]
+        ports    = [var.wekan-web-port]
     }
 
+    target_tags  = ["wekan-host"]
     source_ranges = [
         "0.0.0.0/0"
     ]
