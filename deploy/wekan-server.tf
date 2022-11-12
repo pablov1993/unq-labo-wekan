@@ -46,7 +46,18 @@ resource "google_compute_instance" "wekan-server" {
   }
 
    metadata_startup_script =   <<EOF
-        sudo touch /tmp/test.txt
-
+        if [[ ! -f /opt/startup-script-finished.txt ]]
+        then 
+          
+          apt-get update
+          mkdir -p /mnt/disks/wekan-repo
+          disk_name="/dev/$(basename $(readlink /dev/disk/by-id/google-${google_compute_disk.wekan-disk.name}))"
+          mkfs.ext4 -m 0 -F -E lazy_itable_init=0,lazy_journal_init=0,discard $disk_name
+          mount -o discard,defaults $disk_name /mnt/disks/wekan-repo
+          sleep 2
+          echo UUID=$(sudo blkid -s UUID -o value $disk_name) /mnt/disks/wekan-repo ext4 discard,defaults,nofail 0 2 | sudo tee -a /etc/fstab
+        touch /opt/startup-script-finished.txt && echo "the startup script run once" > /opt/startup-script-finished.txt
+        fi
+        touch /tmp/test.txt
         EOF
 }
