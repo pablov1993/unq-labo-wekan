@@ -1,7 +1,7 @@
 variable "project-id" {
     description = "The GCP project to use for integration tests"
     type        = string
-    default     = "test-sandbox"
+    default     = "unq-labo"
 }
 
 variable "region" {
@@ -31,7 +31,7 @@ variable "disk-size" {
 variable "image" {
     description = "Source disk image."
     type        = string
-    default     = "centos-7-v20220406" 
+    default     = "ubuntu-1804-bionic" 
 }
 
 variable "wekan-machine-type" {
