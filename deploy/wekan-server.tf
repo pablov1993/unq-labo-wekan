@@ -46,7 +46,7 @@ resource "google_compute_instance" "wekan-server" {
   }
 
    metadata_startup_script =   <<EOF
-        touch test.txt
+        sudo touch /tmp/test.txt
 
         EOF
 }
