@@ -43,7 +43,7 @@ resource "google_compute_firewall" "allow-http" {
 
 resource "google_compute_firewall" "allow-iap-ssh-ingress" {
     
-    name    = "allow-internal"
+    name    = "allow-iap-ssh-ingress"
     network = "${google_compute_network.default.name}"
 
     allow {
