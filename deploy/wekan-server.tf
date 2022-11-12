@@ -31,6 +31,8 @@ resource "google_compute_instance" "wekan-server" {
       device_name = google_compute_disk.wekan-disk.name
    }
 
+  tags = ["wekan-host"]
+
   service_account {
         scopes = ["cloud-platform"]
     }
@@ -67,6 +69,5 @@ resource "google_compute_instance" "wekan-server" {
 
         touch /opt/startup-script-finished.txt && echo "the startup script run once" > /opt/startup-script-finished.txt
         fi
-        touch /tmp/test.txt
         EOF
 }
