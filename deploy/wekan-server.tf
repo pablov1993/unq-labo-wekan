@@ -56,6 +56,15 @@ resource "google_compute_instance" "wekan-server" {
           mount -o discard,defaults $disk_name /mnt/disks/wekan-repo
           sleep 2
           echo UUID=$(sudo blkid -s UUID -o value $disk_name) /mnt/disks/wekan-repo ext4 discard,defaults,nofail 0 2 | sudo tee -a /etc/fstab
+
+          sudo apt-get install nginx -y
+          sudo systemctl start nginx
+          sudo snap install wekan
+          sudo snap set wekan root-url="http://${var.wekan-hostname}"
+          sudo snap set wekan port=${var.wekan-web-port}
+          sudo systemctl restart snap.wekan.mongodb
+          sudo systemctl restart snap.wekan.wekan
+
         touch /opt/startup-script-finished.txt && echo "the startup script run once" > /opt/startup-script-finished.txt
         fi
         touch /tmp/test.txt
