@@ -25,7 +25,7 @@ variable "disk-type" {
 variable "disk-size" {
     description = "The GCP disk size specified in GB"
     type        = string
-    default     = "500"
+    default     = "30"
 }
 
 variable "image" {
