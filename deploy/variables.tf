@@ -31,7 +31,7 @@ variable "disk-size" {
 variable "image" {
     description = "Source disk image."
     type        = string
-    default     = "ubuntu-1804-bionic-v20221018" 
+    default     = "debian-11-bullseye-v20221102" 
 }
 
 variable "wekan-machine-type" {
