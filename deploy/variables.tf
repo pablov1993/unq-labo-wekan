@@ -13,7 +13,7 @@ variable "region" {
 variable "zone" {
     description = "The GCP zone to create and test resources in"
     type        = string
-    default     = "us-central1-a"
+    default     = "us-central1-b"
 }
 
 variable "disk-type" {
@@ -37,7 +37,7 @@ variable "image" {
 variable "wekan-machine-type" {
     description = "Instance machine type"
     type        = string
-    default     = "n1-standard-2"
+    default     = "e2-standard-2"
 }
 
 
