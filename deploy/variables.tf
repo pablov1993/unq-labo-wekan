@@ -7,13 +7,13 @@ variable "project-id" {
 variable "region" {
     description = "The GCP region to create and test resources in"
     type        = string
-    default     = "us-central1"
+    default     = "southamerica-west1"
 }
 
 variable "zone" {
     description = "The GCP zone to create and test resources in"
     type        = string
-    default     = "us-central1-a"
+    default     = "southamerica-west1-b"
 }
 
 variable "disk-type" {
@@ -25,7 +25,7 @@ variable "disk-type" {
 variable "disk-size" {
     description = "The GCP disk size specified in GB"
     type        = string
-    default     = "500"
+    default     = "30"
 }
 
 variable "image" {
@@ -37,7 +37,7 @@ variable "image" {
 variable "wekan-machine-type" {
     description = "Instance machine type"
     type        = string
-    default     = "n1-standard-2"
+    default     = "n2-standard-2"
 }
 
 
